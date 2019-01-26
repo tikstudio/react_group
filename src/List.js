@@ -6,6 +6,9 @@ class List extends Component {
     data: PropTypes.array.isRequired
   }
 
+  componentWillReceiveProps(nextProps) {
+
+  }
 
   render() {
     return (

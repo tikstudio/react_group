@@ -3,6 +3,7 @@ import List from "./List";
 
 class App extends Component {
   constructor(props) {
+    console.log('constructor');
     super(props);
     const list = [
       {id: 1, name: 'item 1'},
@@ -17,13 +18,19 @@ class App extends Component {
 
   }
 
+  componentWillMount() {
+    console.log('componentWillMount');
+  }
+
   componentDidMount() {
+    console.log('componentDidMount');
     // this.interval = setInterval(() => {
     //   this.updateTime();
     // }, 1000);
   }
 
   componentWillUnmount() {
+    console.log('componentWillUnmount');
     // clearInterval(this.interval)
   }
 
@@ -47,6 +54,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('render');
     return (
       <div className="test">
         <h1>
@@ -56,10 +64,12 @@ class App extends Component {
           {' : '}
           {this.state.date.getSeconds()}
         </h1>
-        <List data={this.state.list} />
+        <input type="search" placeholder="search"/>
+        <List data={this.state.list}/>
         <div>
           <input type="text" onChange={this.handleChange} value={this.state.val}/>
           <button onClick={this.addList}>add</button>
+          <button>reset</button>
         </div>
       </div>
     );
