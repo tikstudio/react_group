@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       date: new Date(),
       list: list,
+      val: ''
     }
 
   }
@@ -23,10 +24,8 @@ class App extends Component {
   }
 
   componentWillUnmount() {
-    console.log('componentDidMount');
-    clearInterval(this.interval)
+    // clearInterval(this.interval)
   }
-
 
   updateTime = () => {
     this.setState({
@@ -34,13 +33,17 @@ class App extends Component {
     })
   }
 
+  handleChange = (ev) => {
+    this.setState({val: ev.target.value})
+  }
+
   addList = () => {
     const {list} = this.state
     list.push({
       id: list[list.length - 1].id + 1,
-      name: 'test test test'
+      name: this.state.val
     })
-    this.setState({list})
+    this.setState({list, val: ''})
   }
 
   render() {
@@ -53,8 +56,11 @@ class App extends Component {
           {' : '}
           {this.state.date.getSeconds()}
         </h1>
-        <List data={this.state.list}/>
-        <button onClick={this.addList}>add</button>
+        <List data={this.state.list} />
+        <div>
+          <input type="text" onChange={this.handleChange} value={this.state.val}/>
+          <button onClick={this.addList}>add</button>
+        </div>
       </div>
     );
   }
