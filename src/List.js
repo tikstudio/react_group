@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 class List extends Component {
   static propTypes = {
-    data: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired,
+    searchVal: PropTypes.string
   }
 
   componentWillReceiveProps(nextProps) {
@@ -11,11 +12,16 @@ class List extends Component {
   }
 
   render() {
+
     return (
       <ol>
-        {this.props.data.map((val, i) => (
-          <li key={val.id}>{val.name}</li>
-        ))}
+        {this.props.data.map((val, i) => {
+            if( val.name.search(this.props.searchVal) === 0){
+              return <li key={val.id}>{val.name}</li>
+            }else if(this.props.searchVal === ''){
+              return <li key={val.id}>{val.name}</li>
+            }
+        })}
       </ol>
     );
   }

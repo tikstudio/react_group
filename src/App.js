@@ -3,34 +3,30 @@ import List from "./List";
 
 class App extends Component {
   constructor(props) {
-    console.log('constructor');
     super(props);
-    const list = [
+    this.list = [
       {id: 1, name: 'item 1'},
       {id: 456, name: 'item 3'},
       {id: 1231, name: 'test'},
     ]
     this.state = {
       date: new Date(),
-      list: list,
-      val: ''
+      list: this.list,
+      val: '',
+      searchVal: '',
     }
-
   }
 
   componentWillMount() {
-    console.log('componentWillMount');
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
     // this.interval = setInterval(() => {
     //   this.updateTime();
     // }, 1000);
   }
 
   componentWillUnmount() {
-    console.log('componentWillUnmount');
     // clearInterval(this.interval)
   }
 
@@ -41,20 +37,36 @@ class App extends Component {
   }
 
   handleChange = (ev) => {
-    this.setState({val: ev.target.value})
+    switch (ev.target.type) {
+      case 'search' :
+        this.setState({searchVal: ev.target.value})
+        break;
+
+      case 'text' :
+        this.setState({val: ev.target.value})
+        break;
+
+      default:
+        break;
+    }
   }
 
   addList = () => {
-    const {list} = this.state
+      console.log(this.list)
+      const {list} = this.state
     list.push({
       id: list[list.length - 1].id + 1,
       name: this.state.val
     })
+      console.log(this.list)
     this.setState({list, val: ''})
   }
 
+    resetList = () =>{
+        this.setState({list: this.list})
+    }
+
   render() {
-    console.log('render');
     return (
       <div className="test">
         <h1>
@@ -64,12 +76,12 @@ class App extends Component {
           {' : '}
           {this.state.date.getSeconds()}
         </h1>
-        <input type="search" placeholder="search"/>
-        <List data={this.state.list}/>
+        <input type="search" placeholder="search" onChange={this.handleChange}/>
+        <List data={this.state.list} searchVal={this.state.searchVal}/>
         <div>
           <input type="text" onChange={this.handleChange} value={this.state.val}/>
           <button onClick={this.addList}>add</button>
-          <button>reset</button>
+          <button onClick={this.resetList}>reset</button>
         </div>
       </div>
     );
