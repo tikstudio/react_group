@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import List from "./List";
 
+const initList = [
+  {id: 1, name: 'item 1'},
+  {id: 456, name: 'item 3'},
+  {id: 1231, name: 'test'},
+]
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.list = [
-      {id: 1, name: 'item 1'},
-      {id: 456, name: 'item 3'},
-      {id: 1231, name: 'test'},
-    ]
     this.state = {
       date: new Date(),
-      list: this.list,
+      list: [...initList],
       val: '',
       searchVal: '',
     }
@@ -52,19 +53,18 @@ class App extends Component {
   }
 
   addList = () => {
-      console.log(this.list)
-      const {list} = this.state
+    const {list} = this.state
     list.push({
       id: list[list.length - 1].id + 1,
       name: this.state.val
     })
-      console.log(this.list)
     this.setState({list, val: ''})
   }
 
-    resetList = () =>{
-        this.setState({list: this.list})
-    }
+  resetList = () => {
+    console.log(initList);
+    this.setState({list: [...initList]})
+  }
 
   render() {
     return (
