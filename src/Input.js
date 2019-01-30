@@ -7,10 +7,11 @@ class Input extends Component {
   };
 
   render() {
+    const {label, ...prop} = this.props
     return (
       <label>
-        <span>{this.props.label}</span>
-        <input type="text"/>
+        <span>{label}</span>
+        <input type="text" {...prop} />
       </label>
     );
   }
