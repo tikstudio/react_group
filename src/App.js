@@ -27,6 +27,17 @@ class App extends Component {
 
   toggleModal = (modalOpen) => {
     this.setState({modalOpen})
+    if(!modalOpen){
+      this.setState({
+        modal: {
+          name: '',
+          lName: '',
+          phone: '',
+          row: '',
+          col: '',
+        }
+      })
+    }
   }
 
   handleClick = (row, col) => {
@@ -34,6 +45,12 @@ class App extends Component {
     const {modal} = this.state
     modal.row = row;
     modal.col = col;
+    const data = this.getData();
+    if (row in data && col in data[row]) {
+      modal.name  = data[row][col]['name'];
+      modal.lName = data[row][col]['lName'];
+      modal.phone = data[row][col]['phone'];
+    }
     this.setState({modal})
   }
 
