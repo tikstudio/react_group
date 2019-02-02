@@ -32,6 +32,13 @@ class App extends Component {
   handleClick = (row, col) => {
     this.toggleModal(true)
     const {modal} = this.state
+    const data = this.getData()
+    if (row in data && col in data[row]) {
+      const {name, lName, phone} = data[row][col]
+      modal.name = name;
+      modal.lName = lName;
+      modal.phone = phone;
+    }
     modal.row = row;
     modal.col = col;
     this.setState({modal})
@@ -89,6 +96,25 @@ class App extends Component {
     return false
   }
 
+  delete = () => {
+    const {col, row} = this.state.modal
+    const data = this.getData();
+    if (row in data && col in data[row]) {
+      delete data[row][col]
+      window.localStorage.setItem('data', JSON.stringify(data))
+    }
+    this.setState({
+      modalOpen: false,
+      modal: {
+        name: '',
+        lName: '',
+        phone: '',
+        row: '',
+        col: '',
+      }
+    })
+  }
+
   render() {
     return (
       <div>
@@ -115,6 +141,7 @@ class App extends Component {
           toggleModal={this.toggleModal}
           inputChange={this.inputChange}
           save={this.save}
+          delete={this.delete}
           modal={this.state.modal}
         />}
 

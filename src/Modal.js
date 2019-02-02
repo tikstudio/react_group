@@ -42,6 +42,7 @@ class Modal extends Component {
             value={this.props.modal.col}
             readOnly="readonly"/>
           <button onClick={this.props.save}>Save</button>
+          <button onClick={this.props.delete}>Delete</button>
         </div>
       </div>
     );

@@ -8,6 +8,7 @@ class Input extends Component {
 
   render() {
     const {label, ...prop} = this.props
+    console.log(prop);
     return (
       <label>
         <span>{label}</span>
