@@ -4,6 +4,17 @@ import {Link} from "react-router-dom";
 class Header extends Component {
   static propTypes = {};
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuOpen: false,
+    }
+  }
+
+  toggleMenu = () => {
+    this.setState({menuOpen: !this.state.menuOpen})
+  }
+
   render() {
     return (
       <header>
@@ -21,10 +32,11 @@ class Header extends Component {
               </Link>
             </h1>
             <div className="menu_block">
-              <nav id="bt-menu" className="bt-menu">
-                <Link to="#" className="bt-menu-trigger">
+              <nav id="bt-menu"
+                   className={`bt-menu ${this.state.menuOpen ? 'bt-menu-open' : ''}`}>
+                <div onClick={this.toggleMenu} className="bt-menu-trigger">
                   <span>Menu</span>
-                </Link>
+                </div>
                 <ul>
                   <li className="current bt-icon ">
                     <Link to="index.html">Home</Link>
@@ -33,7 +45,7 @@ class Header extends Component {
                     <Link to="index-1.html">About</Link>
                   </li>
                   <li className="bt-icon">
-                    <Link to="index-2.html">Menu</Link>
+                    <Link to="/menu">Menu</Link>
                   </li>
                   <li className="bt-icon">
                     <Link to="index-3.html">Blog</Link>
