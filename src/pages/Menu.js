@@ -3,6 +3,7 @@ import CategoryList, {catListEvent} from "../components/CategoryList";
 import data from '../data'
 import {Link} from "react-router-dom";
 import Product from "../components/Product";
+import Wrapper from "../components/Wrapper";
 
 class Menu extends Component {
   static propTypes = {};
@@ -32,27 +33,28 @@ class Menu extends Component {
       return prod.category.indexOf(selectedCat) > -1
     });
     return (
-      <div className="content">
-        <div className="ic">
-          More Website Templates @ TemplateMonster.com - December 02, 2013!
-        </div>
-        <div className="container_12">
-          <div className="grid_12">
-            <h3 className="head2">Our Menu</h3>
+      <Wrapper>
+        <div className="content">
+          <div className="ic">
+            More Website Templates @ TemplateMonster.com - December 02, 2013!
           </div>
-
-          <div className="tabs tb gallery">
-            <CategoryList/>
-            <div className="div-tabs">
-              <div className="tab-content gallery1">
-                {productsF.map((prod) => (
-                  <Product key={prod.id} data={prod}/>
-                ))}
+          <div className="container_12">
+            <div className="grid_12">
+              <h3 className="head2">Our Menu</h3>
+            </div>
+            <div className="tabs tb gallery">
+              <CategoryList/>
+              <div className="div-tabs">
+                <div className="tab-content gallery1">
+                  {productsF.map((prod) => (
+                    <Product key={prod.id} data={prod}/>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </Wrapper>
     );
   }
 }

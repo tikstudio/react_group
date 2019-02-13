@@ -39,7 +39,7 @@ class Header extends Component {
                 </div>
                 <ul>
                   <li className="current bt-icon ">
-                    <Link to="index.html">Home</Link>
+                    <Link to="/">Home</Link>
                   </li>
                   <li className="bt-icon">
                     <Link to="index-1.html">About</Link>
