@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+
 import Home from "./pages/Home";
+import Menu from "./pages/Menu";
+
 import {
   BrowserRouter, Route, Switch
 } from "react-router-dom";
@@ -9,7 +12,8 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route component={Home} />
+          <Route path="/menu" component={Menu}/>
+          <Route path="/" exact component={Home}/>
         </Switch>
       </BrowserRouter>
     );

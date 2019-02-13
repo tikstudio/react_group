@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 class TopProduct extends Component {
   render() {
-    const {image, name, price, id} = this.props.item
+    const {image, name, price} = this.props.item
     return (
       <Link to="/product/1" className="block1">
         <img src={image} alt=""/>
