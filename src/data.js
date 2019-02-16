@@ -23,28 +23,28 @@ const data = {
   },
   products: [
     {
-      id: 1,
+      id: 45646,
       name: 'Cras facilisis',
       image: '/images/page3_img1.jpg',
       price: 10.99,
       category: [1, 5]
     },
     {
-      id: 2,
+      id: 878,
       name: 'Phasellus erat',
       image: '/images/page3_img2.jpg',
       price: 21.9,
       category: [2]
     },
     {
-      id: 3,
+      id: 12456,
       name: 'Kneras facilisis ',
       image: '/images/page3_img2.jpg',
       price: 19,
       category: [4]
     },
     {
-      id: 4,
+      id: '11asdsa',
       name: 'Dert facilis',
       image: 'images/page3_img4.jpg',
       price: 25.30,

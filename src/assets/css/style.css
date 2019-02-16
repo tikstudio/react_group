@@ -500,13 +500,13 @@ a.col1:hover, .col1 > a:hover {
 .div-tabs .clear {
 }
 
-.div-tabs a.gal {
+.div-tabs .gal {
     margin-top: 52px;
 
     margin-bottom: 23px;
 }
 
-.div-tabs a.gal img {
+.div-tabs .gal img {
     border: 1px solid #f7f8ed;
     border-radius: 500px;
 }

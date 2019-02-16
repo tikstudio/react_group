@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import CategoryList, {catListEvent} from "../components/CategoryList";
 import data from '../data'
-import {Link} from "react-router-dom";
 import Product from "../components/Product";
 import Wrapper from "../components/Wrapper";
+import ProductModal from "../components/ProductModal";
+import '../assets/css/touchTouch.css';
 
 class Menu extends Component {
   static propTypes = {};
@@ -54,6 +55,7 @@ class Menu extends Component {
             </div>
           </div>
         </div>
+        <ProductModal/>
       </Wrapper>
     );
   }
