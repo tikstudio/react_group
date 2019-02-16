@@ -50,11 +50,11 @@ class ProductModal extends Component {
           <div
             onClick={this.hide}
             className="placeholder">
-            <img src={product.image} alt={product.name}/>
+            <img src={product.imageFull} alt={product.name}/>
           </div>
         </div>
-        {!!prevId && <div id="prevArrow" onClick={() => this.toggle(prevId)}/>}
-        {!!nextId && <div id="nextArrow" onClick={() => this.toggle(nextId)}/>}
+        {!!prevId && <div id="prevArrow" onClick={() => this.toggle({id: prevId})}/>}
+        {!!nextId && <div id="nextArrow" onClick={() => this.toggle({id: nextId})}/>}
       </div>
     );
   }

@@ -26,6 +26,7 @@ const data = {
       id: 1,
       name: 'Cras facilisis',
       image: '/images/page3_img1.jpg',
+      imageFull: '/images/big1.jpg',
       price: 10.99,
       category: [1, 5]
     },
@@ -33,13 +34,15 @@ const data = {
       id: 878,
       name: 'Phasellus erat',
       image: '/images/page3_img2.jpg',
+      imageFull: '/images/big2.jpg',
       price: 21.9,
       category: [2]
     },
     {
       id: 12456,
       name: 'Kneras facilisis ',
-      image: '/images/page3_img2.jpg',
+      image: '/images/page3_img3.jpg',
+      imageFull: '/images/big3.jpg',
       price: 19,
       category: [4]
     },
@@ -47,6 +50,7 @@ const data = {
       id: '11asdsa',
       name: 'Dert facilis',
       image: 'images/page3_img4.jpg',
+      imageFull: '/images/big4.jpg',
       price: 25.30,
       category: [5]
     },

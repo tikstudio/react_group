@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
+import HeaderCart from "./HeaderCart";
 
 class Header extends Component {
   static propTypes = {};
@@ -19,7 +20,7 @@ class Header extends Component {
     return (
       <header>
         <div className="container_12">
-          <div className="grid_12">
+          <div className="grid_12 header_content">
             <div className="socials">
               <Link to="#"></Link>
               <Link to="#"></Link>
@@ -31,6 +32,7 @@ class Header extends Component {
                 <img src="/images/logo.png" alt="Boo House"/>
               </Link>
             </h1>
+            <HeaderCart/>
             <div className="menu_block">
               <nav id="bt-menu"
                    className={`bt-menu ${this.state.menuOpen ? 'bt-menu-open' : ''}`}>
