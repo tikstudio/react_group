@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import EventEmitter from 'events';
 import data from '../data'
+import Emitter from '../helper/Emitter'
 
-export const modalEvent = new EventEmitter()
 
 class ProductModal extends Component {
   constructor(props) {
@@ -10,11 +9,15 @@ class ProductModal extends Component {
     this.state = {
       open: false
     };
-    modalEvent.on('toggle', this.toggle);
+    Emitter.add('TOGGLE_MODAL', this.toggle);
   }
 
-  toggle = (open) => {
-    this.setState({open})
+  componentWillUnmount() {
+    Emitter.remove('TOGGLE_MODAL', this.toggle);
+  }
+
+  toggle = (param, error) => {
+    this.setState({open: param.id})
   }
 
   hide = (ev) => {
@@ -28,8 +31,16 @@ class ProductModal extends Component {
       return null
     }
     const {products} = data
-    const product = products.find((p) => p.id = this.state.open)
-
+    let product
+    let nextId = null;
+    let prevId = null;
+    products.forEach((p, i) => {
+      if (p.id === this.state.open) {
+        product = p
+        prevId = products[i - 1] ? products[i - 1].id : null;
+        nextId = products[i + 1] ? products[i + 1].id : null;
+      }
+    });
     return (
       <div
         style={{display: 'block'}}
@@ -39,11 +50,11 @@ class ProductModal extends Component {
           <div
             onClick={this.hide}
             className="placeholder">
-            <img src={product.image}/>
+            <img src={product.image} alt={product.name}/>
           </div>
         </div>
-        <a id="prevArrow"></a>
-        <a id="nextArrow"></a>
+        {!!prevId && <div id="prevArrow" onClick={() => this.toggle(prevId)}/>}
+        {!!nextId && <div id="nextArrow" onClick={() => this.toggle(nextId)}/>}
       </div>
     );
   }

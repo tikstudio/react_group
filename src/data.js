@@ -23,7 +23,7 @@ const data = {
   },
   products: [
     {
-      id: 45646,
+      id: 1,
       name: 'Cras facilisis',
       image: '/images/page3_img1.jpg',
       price: 10.99,

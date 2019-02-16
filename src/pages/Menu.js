@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import CategoryList, {catListEvent} from "../components/CategoryList";
+import CategoryList from "../components/CategoryList";
 import data from '../data'
 import Product from "../components/Product";
 import Wrapper from "../components/Wrapper";
 import ProductModal from "../components/ProductModal";
 import '../assets/css/touchTouch.css';
+import Emitter from "../helper/Emitter";
 
 class Menu extends Component {
   static propTypes = {};
@@ -14,12 +15,12 @@ class Menu extends Component {
     this.state = {
       selectedCat: data.category[0].id,
     }
-    catListEvent.on('change', this.handleCatChange);
+    Emitter.add('CHANGE_CATEGORY', this.handleCatChange);
   }
 
 
   componentWillUnmount() {
-    catListEvent.removeAllListeners();
+    Emitter.remove('CHANGE_CATEGORY', this.handleCatChange);
   }
 
 
@@ -33,6 +34,7 @@ class Menu extends Component {
     const productsF = products.filter((prod) => {
       return prod.category.indexOf(selectedCat) > -1
     });
+
     return (
       <Wrapper>
         <div className="content">

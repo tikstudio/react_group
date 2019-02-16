@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-import {modalEvent} from "./ProductModal";
+import Emitter from "../helper/Emitter";
 
 class Product extends Component {
   openModal = () => {
-    modalEvent.emit('toggle', this.props.data.id)
+    Emitter.call(
+      'TOGGLE_MODAL',
+      {id: this.props.data.id},
+      null,
+    );
   }
+
 
   render() {
     const {data} = this.props

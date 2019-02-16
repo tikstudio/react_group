@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import data from '../data'
-import EventEmitter from 'events'
+import Emitter from "../helper/Emitter";
 
-export const catListEvent = new EventEmitter();
 
 class CategoryList extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class CategoryList extends Component {
 
   handleClick = (id) => {
     this.setState({selected: id})
-    catListEvent.emit('change', id);
+    Emitter.call('CHANGE_CATEGORY', id);
   }
 
   render() {
