@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
+import Cart from "./pages/Cart";
 
 import {
   BrowserRouter, Route, Switch
@@ -14,6 +15,7 @@ class App extends Component {
         <Switch>
           <Route path="/menu" component={Menu}/>
           <Route path="/" exact component={Home}/>
+          <Route path="/cart" exact component={Cart}/>
         </Switch>
       </BrowserRouter>
     );

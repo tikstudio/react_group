@@ -793,4 +793,6 @@ footer a:hover {
 .HeaderCart{
     position: absolute;
     right: 0;
+    z-index: 55;
+    cursor: pointer;
 }

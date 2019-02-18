@@ -6,14 +6,14 @@ export function addProduct(prodId, qty = 1) {
   if (!cart[prodId]) {
     cart[prodId] = 0
   }
-  cart[prodId] += qty;
+  cart[prodId] += parseInt(qty);
   saveCart(cart);
   Emitter.call('UPDATE_CART')
 }
 
 export function setProduct(prodId, qty) {
   const cart = getCart();
-  cart[prodId] = qty;
+  cart[prodId] = parseInt(qty);
   saveCart(cart);
   Emitter.call('UPDATE_CART')
 }
@@ -55,7 +55,6 @@ export function getTotal() {
   let total = 0;
   const {products} = data
   Object.entries(cart).forEach(([prodId, qty]) => {
-    console.log(products);
     const product = products.find((p) => String(p.id) === String(prodId))
     if (product) {
       total += (product.price * qty)

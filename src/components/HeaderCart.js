@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {getTotal, getTotalProducts} from "../helper/cart";
 import Emitter from "../helper/Emitter";
+import {Link} from "react-router-dom";
 
 class HeaderCart extends Component {
   constructor(props) {
@@ -23,7 +24,9 @@ class HeaderCart extends Component {
   render() {
     return (
       <div className="HeaderCart">
-        <img width="25" height="25" src="/images/shopping-cart.svg" alt="cart"/>
+        <Link to="/cart">
+          <img width="25" height="25" src="/images/shopping-cart.svg" alt="cart"/>
+        </Link>
         {this.state.totalCount}
         ----
         {this.state.total}
