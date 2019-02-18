@@ -32,6 +32,13 @@ class Cart extends Component {
     const {cart} = this.state;
     const localCart = getCart();
     const fProd = products.filter((p) => localCart[p.id])
+    if (!fProd.length) {
+      return (
+        <Wrapper>
+          <h2>Your cart is empty</h2>
+        </Wrapper>
+      )
+    }
     return (
       <Wrapper>
         <table>
@@ -41,6 +48,7 @@ class Cart extends Component {
             <th>Image</th>
             <th>name</th>
             <th>qty</th>
+            <th>price</th>
             <th/>
           </tr>
           </thead>
@@ -62,6 +70,7 @@ class Cart extends Component {
                 />
                 <button onClick={() => addProduct(p.id, 1)}>+</button>
               </td>
+              <td>{(p.price * cart[p.id]).toFixed(2)}</td>
               <td>
                 <button onClick={() => removeProduct(p.id)}>x</button>
               </td>
