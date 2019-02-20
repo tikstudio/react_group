@@ -63,3 +63,6 @@ export function getTotal() {
   return parseFloat(total.toFixed(2));
 }
 
+export function showCartModal() {
+  Emitter.call('SHOW_CART_MODAL')
+}

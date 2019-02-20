@@ -6,6 +6,7 @@ import Wrapper from "../components/Wrapper";
 import ProductModal from "../components/ProductModal";
 import '../assets/css/touchTouch.css';
 import Emitter from "../helper/Emitter";
+import CartModal from "../components/CartModal";
 
 class Menu extends Component {
   static propTypes = {};
@@ -14,29 +15,39 @@ class Menu extends Component {
     super(props);
     this.state = {
       selectedCat: data.category[0].id,
+      cartModalOpen: false
     }
     Emitter.add('CHANGE_CATEGORY', this.handleCatChange);
+    Emitter.add('SHOW_CART_MODAL', this.toggleCartModal);
   }
 
 
   componentWillUnmount() {
     Emitter.remove('CHANGE_CATEGORY', this.handleCatChange);
+    Emitter.remove('SHOW_CART_MODAL', this.toggleCartModal)
   }
 
-
+  toggleCartModal = () =>{
+    const {cartModalOpen} = this.state
+    this.setState({
+      cartModalOpen: ! cartModalOpen
+    })
+  }
   handleCatChange = (id) => {
     this.setState({selectedCat: id})
   }
 
   render() {
     const {products} = data
-    const {selectedCat} = this.state
+    const {selectedCat, cartModalOpen} = this.state
     const productsF = products.filter((prod) => {
       return prod.category.indexOf(selectedCat) > -1
     });
 
     return (
       <Wrapper>
+        {cartModalOpen ? <CartModal/> : null}
+        {/*<CartModal/>*/}
         <div className="content">
           <div className="ic">
             More Website Templates @ TemplateMonster.com - December 02, 2013!

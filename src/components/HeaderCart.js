@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getTotal, getTotalProducts} from "../helper/cart";
+import {getTotal, getTotalProducts , showCartModal} from "../helper/cart";
 import Emitter from "../helper/Emitter";
 import {Link} from "react-router-dom";
 
@@ -23,10 +23,8 @@ class HeaderCart extends Component {
 
   render() {
     return (
-      <div className="HeaderCart">
-        <Link to="/cart">
+      <div className="HeaderCart" onClick={showCartModal}>
           <img width="25" height="25" src="/images/shopping-cart.svg" alt="cart"/>
-        </Link>
         {this.state.totalCount}
         ----
         {this.state.total}

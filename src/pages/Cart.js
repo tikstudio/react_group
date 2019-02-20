@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Wrapper from "../components/Wrapper";
-import {addProduct, getCart, removeProduct, setProduct} from "../helper/cart";
+import {addProduct, getCart, removeProduct, setProduct, getTotal} from "../helper/cart";
 import data from '../data'
 import Emitter from "../helper/Emitter";
 
@@ -76,6 +76,9 @@ class Cart extends Component {
               </td>
             </tr>
           ))}
+          <tr>
+            <td colspan="5" style={{textAlign: 'right'}}>Total Praice - {getTotal()}</td>
+          </tr>
           </tbody>
         </table>
       </Wrapper>
