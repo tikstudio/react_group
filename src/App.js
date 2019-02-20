@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './helper/history'
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Cart from "./pages/Cart";
@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import {
   BrowserRouter, Route, Switch
 } from "react-router-dom";
+
 
 class App extends Component {
   render() {

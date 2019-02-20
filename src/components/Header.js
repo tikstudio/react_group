@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import HeaderCart from "./HeaderCart";
+import MenuItem from "./menu/MenuItem";
 
 class Header extends Component {
   static propTypes = {};
@@ -40,24 +41,24 @@ class Header extends Component {
                   <span>Menu</span>
                 </div>
                 <ul>
-                  <li className="current bt-icon ">
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li className="bt-icon">
-                    <Link to="index-1.html">About</Link>
-                  </li>
-                  <li className="bt-icon">
-                    <Link to="/menu">Menu</Link>
-                  </li>
-                  <li className="bt-icon">
-                    <Link to="index-3.html">Blog</Link>
-                  </li>
-                  <li className="bt-icon">
-                    <Link to="index-4.html">Reservation</Link>
-                  </li>
-                  <li className="bt-icon">
-                    <Link to="index-5.html">Contacts</Link>
-                  </li>
+                  <MenuItem to="/">
+                    Home
+                  </MenuItem>
+                  <MenuItem to="/about">
+                    About
+                  </MenuItem>
+                  <MenuItem to="/menu">
+                    menu
+                  </MenuItem>
+                  <MenuItem to="/blog">
+                    Blog
+                  </MenuItem>
+                  <MenuItem to="/reservation">
+                    Reservation
+                  </MenuItem>
+                  <MenuItem to="/contacts">
+                    Contacts
+                  </MenuItem>
                 </ul>
               </nav>
               <div className="clear"/>

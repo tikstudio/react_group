@@ -787,12 +787,20 @@ footer a:hover {
     text-align: center;
     padding-bottom: 100px;
 }
-.header_content{
+
+.header_content {
     position: relative;
 }
-.HeaderCart{
+
+.HeaderCart {
     position: absolute;
     right: 0;
     z-index: 55;
     cursor: pointer;
+}
+
+.CartModal {
+    position: absolute;
+    background-color: white;
+    width: 250px;
 }

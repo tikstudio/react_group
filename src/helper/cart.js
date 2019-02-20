@@ -20,7 +20,7 @@ export function setProduct(prodId, qty) {
 
 export function removeProduct(prodId) {
   const cart = getCart();
-  if (!cart[prodId]) {
+  if (cart[prodId]) {
     delete cart[prodId]
   }
   saveCart(cart);
