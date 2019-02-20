@@ -47,7 +47,6 @@ class Menu extends Component {
     return (
       <Wrapper>
         {cartModalOpen ? <CartModal/> : null}
-        {/*<CartModal/>*/}
         <div className="content">
           <div className="ic">
             More Website Templates @ TemplateMonster.com - December 02, 2013!

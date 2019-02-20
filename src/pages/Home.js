@@ -3,12 +3,32 @@ import Wrapper from "../components/Wrapper";
 import TopProduct from "../components/TopProduct";
 import data from '../data'
 import {Link} from "react-router-dom";
+import Emitter from "../helper/Emitter";
+import CartModal from "./Menu";
 
 class Home extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      cartModalOpen: false
+    }
+    Emitter.add('SHOW_CART_MODAL', this.toggleCartModal);
+  }
+
+  toggleCartModal = () =>{
+    const {cartModalOpen} = this.state
+    this.setState({
+      cartModalOpen: ! cartModalOpen
+    })
+  }
+
   render() {
     const {topProducts} = data.home
+    const{cartModalOpen} = this.state
     return (
       <Wrapper>
+        {cartModalOpen ? <CartModal/> : null}
         <div className="content">
           <div className="ic">
             More Website Templates @ TemplateMonster.com - December 02, 2013!
