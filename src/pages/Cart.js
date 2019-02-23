@@ -77,7 +77,7 @@ class Cart extends Component {
             </tr>
           ))}
           <tr>
-            <td colspan="5" style={{textAlign: 'right'}}>Total Praice - {getTotal()}</td>
+            <td colSpan="5" style={{textAlign: 'right'}}>Total Praice - {getTotal()}</td>
           </tr>
           </tbody>
         </table>

@@ -4,7 +4,7 @@ import TopProduct from "../components/TopProduct";
 import data from '../data'
 import {Link} from "react-router-dom";
 import Emitter from "../helper/Emitter";
-import CartModal from "./Menu";
+import CartModal from "../components/CartModal";
 
 class Home extends Component {
 

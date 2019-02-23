@@ -823,4 +823,9 @@ footer a:hover {
 .CartModal table td input {
     max-width: 50px;
 }
+.description {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 2s;
+}
 

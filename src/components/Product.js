@@ -4,6 +4,13 @@ import Emitter from "../helper/Emitter";
 import {addProduct} from "../helper/cart";
 
 class Product extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      openDescription: false
+    }
+  }
+
   openModal = (ev) => {
     ev.preventDefault();
     Emitter.call(
@@ -16,8 +23,18 @@ class Product extends Component {
     addProduct(this.props.data.id, 1)
   }
 
+  openDescription = ()=>{
+    const {openDescription} = this.state
+    this.setState({
+      openDescription: !openDescription
+    })
+  }
+
   render() {
     const {data} = this.props
+    const{openDescription} = this.state
+    const descriptionStyle = openDescription ? {maxHeight: '500px'} : {maxHeight: '0'}
+    console.log(descriptionStyle)
     return (
       <div
         className="grid_3">
@@ -35,7 +52,13 @@ class Product extends Component {
           </div>
           <span className="col3">
             {data.name}
-          </span> $ {data.price}
+          </span> ${data.price}
+          <div onClick={this.openDescription} className="col3">
+            More info
+          </div>
+          <div className="col3 description" style={descriptionStyle}>
+            {data.description}
+          </div>
         </div>
       </div>
     );
