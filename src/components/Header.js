@@ -32,6 +32,13 @@ class Header extends Component {
     }
   }
 
+  handleKeyPress = (ev) => {
+    const key = ev.which || ev.keyCode;
+    if (key === 13) {
+      this.add();
+    }
+  }
+
   render() {
     const {value} = this.state;
     return (
@@ -40,6 +47,7 @@ class Header extends Component {
           <input
             type="text"
             value={value}
+            onKeyPress={this.handleKeyPress}
             onChange={this.handleChange}/>
         </div>
         <button
