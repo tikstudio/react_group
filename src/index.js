@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './assets/styles/style.css'
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
 import appStore from "./store/reducers";
 import {Provider} from "react-redux";
+import thunk from 'redux-thunk';
 
-const store = createStore(appStore);
+const store = createStore(appStore, applyMiddleware(thunk));
 window.store = store;
 
 ReactDOM.render(

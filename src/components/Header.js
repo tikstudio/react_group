@@ -11,10 +11,9 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
     }
   }
-
 
   handleChange = (ev) => {
     this.setState({value: ev.target.value})
