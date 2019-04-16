@@ -5,6 +5,9 @@ const initList = [
   {id: 1, name: 'item 1'},
   {id: 456, name: 'item 3'},
   {id: 1231, name: 'test'},
+  {id: 1, name: 'item 1'},
+  {id: 456, name: 'item 3'},
+  {id: 1231, name: 'test'},
 ]
 
 class App extends Component {
